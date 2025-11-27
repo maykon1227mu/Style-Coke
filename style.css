@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'susto';
+    src: url(./src/fonts/MIRADESU.otf) format('opentype');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'susto';
+}
+
+body {
+    color: rgb(255, 136, 0);
+    width: 100%;
+    height: 100vh;
+    background: url(./src/imgs/ImagemFundo2.png);
+    background-position: center;
+    background-size: cover;
+    backdrop-filter: blur(5px);
+    background-repeat: no-repeat;
+    transition: all ease-in-out 0.3s;
+}
+
+.banner {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.word {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50%;
+    display: flex;
+    gap: 400px;
+    transition: .8s;
+
+}
+.word h1 {
+    position: relative;
+}
+body:has(.product:hover) .word {
+    scale: 1.1;
+    transform: translateX(-45%);
+}
+body:has(.product) .word h1::before {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 0%;
+    background-color: black;
+    bottom: 0;
+
+}
+body:has(.product) .word h1::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 0%;
+    background-color: black;
+    top: 0;
+    left: 0;
+
+}
+body:has(.product:hover) .word h1::after{
+    width: 100%;
+    transition: ease-in-out .7s;
+}
+body:has(.product:hover) .word h1::before{
+    width: 100%;
+    transition: ease-in-out .7s;
+}
+
+
+
+body:has(.product:hover) {
+    background: url(./src/imgs/ImagemFundo.png);
+    background-position: center;
+    background-size: cover;
+    backdrop-filter: blur(5px);
+    color: black;
+    
+}
+
+.word h1 {
+    font-size: 150px;
+    font-weight: bold;
+}
+.banner .product {
+    display: flex;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    bottom: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    transition: .7s;
+    --left: -255px;
+}
+.banner .product .soda {
+    background: 
+        var(--url)  var(--left) 0,
+        url(./src/imgs/ImagemLata.png);
+
+        background-size: auto 100%;
+        width: 280px;
+        aspect-ratio: 2/ 4;
+        background-blend-mode: multiply;
+        mask-image: url(./src/imgs/ImagemLata.png);
+        mask-size: auto 100%;
+        mask-repeat: no-repeat;
+        transition: .7s;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+}
+.banner .product:hover {
+    --left: -1045px;
+    transform: translateX(-50%) translateY(-120px);
+}
+
+.banner .product .soda:nth-child(2) {
+    opacity: 0;
+}
+.banner .product:hover .soda:nth-child(2) {
+    opacity: 1;
+}
